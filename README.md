@@ -1,8 +1,10 @@
 
 
+![Screenshot (18)](https://github.com/avinash768/TextEditer/assets/84613127/496f8656-b6d5-4461-8851-c7fcf72f537e)
 
 
-# Getting Started with Create React App
+# Getti![Screenshot (17)](https://github.com/avinash768/TextEditer/assets/84613127/dc132474-9e57-4fac-a8e0-a0f184d4d404)
+ng Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
