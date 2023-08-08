@@ -2,9 +2,9 @@ import { useState } from 'react';
 import './App.css';
 import Navebar from './components/Navebar';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert';
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 function App() {
@@ -40,21 +40,20 @@ function App() {
   return (
     <>
 
-      {/* <Router> */}
+      <Router>
         <Navebar titles="TextUtiles" labels="that my web" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Switch>
+          <Switch>
             <Route exact path="/about">
-              <About />
-            </Route> */}
-            {/* <Route exact path="/"> */}
+              <About mode={mode}/>
+            </Route>
+            <Route exact path="/">
               <TextForm showAlert={showAlert} titles="Enter text" mode={mode} />
-            {/* </Route> */}
-          {/* </Switch> */}
-
+            </Route>
+          </Switch>
         </div>
-      {/* </Router> */}
+      </Router>
 
 
     </>

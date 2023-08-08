@@ -20,6 +20,7 @@ export default function TextForm(props) {
         var text = document.getElementById("exampleFormControlTextarea1");
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text copy","success");
     }
     const handleRemoveSpacesClick =()=>{
@@ -47,16 +48,16 @@ export default function TextForm(props) {
                 <textarea className="form-control" id="exampleFormControlTextarea1"  value={text} onChange={handleOnChange} rows="9">Enter text hear</textarea>
                
                 </div>
-                <button className="btn btn-primary mx-2"  onClick={handleUpClick}>Convert to uppercase</button>
-                <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to lowercase</button>
-                <button className="btn btn-primary mx-2" onClick={handleClClick}>clare</button>
-                <button className="btn btn-primary mx-2" onClick={handleCopyClick}>Copy</button>
-                <button className="btn btn-primary mx-2" onClick={handleRemoveSpacesClick}>remove extra spaces</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"  onClick={handleUpClick}>Convert to uppercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>Convert to lowercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClClick}>clare</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopyClick}>Copy</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleRemoveSpacesClick}>remove extra spaces</button>
                
                 <div className="container">
                     <h1>your text summary</h1>
-                    <p>{text.split(" ").length} World and {text.length} chearecters</p>
-                    <p>{0.008 * text.split(" ").length} minutes read</p>
+                    <p>{text.split(/\s+/).filter((element)=>{return element.length!== 0}).length} World and {text.length} chearecters</p>
+                    <p>{0.008 * text.split(" ").filter((element)=>{return element.length!== 0}).length} minutes read</p>
                     <h2>Preview</h2>
                     <p>{text.length>0?text:"Enter text for preview "}</p>
                 </div>
